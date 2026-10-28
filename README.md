@@ -27,14 +27,14 @@ Pkg.instantiate()
 Then run a case from each case directory:
 
 ```bash
-cd cases/calorically_perfect
+cd cases/calorically_perfect/
 julia --project=... scramjet_calorically_perfect.jl
 ```
 
 and
 
 ```bash
-cd cases/thermally_perfect
+cd cases/thermally_perfect/
 julia --project=... cases/thermally_perfect/scramjet_thermally_perfect.jl
 ```
 
