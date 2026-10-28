@@ -1,0 +1,5 @@
+[deps]
+AeroTrixi = "96ec6574-3e85-11f1-3b3c-2957db4b7004"
+FlowRef = "e2f09e9e-4b11-4a24-9e3f-a1cd38a03ba0"
+OrdinaryDiffEqSSPRK = "669c94d9-1f4b-4b64-b377-1aa079aa2388"
+Trixi = "a7f1ee26-1774-49b1-8366-f1abc58fbfcb"
