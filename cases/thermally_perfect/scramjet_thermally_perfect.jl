@@ -29,9 +29,6 @@ const L_REF = 0.75                          # scramjet lenght [m]
 
 const R_SPECIFIC = FlowRef.k_B / MASS_AVG
 const RHO_FREESTREAM = P_FREESTREAM / (R_SPECIFIC * T_FREESTREAM)
-
-# O.G.: every reference quantity follows from (p, T, rho, L); the equations are solved
-#       in these units, so the free stream is O(1) by construction.
 const REF_Q = p_T_rho_L(P_FREESTREAM, T_FREESTREAM, RHO_FREESTREAM, L_REF)
 
 ###################################################################################################
@@ -162,7 +159,7 @@ save_solution = SaveSolutionCallback(dt = 0.1,
 save_restart = SaveRestartCallback(interval = 0, save_final_restart = true,
                                    output_directory = joinpath(@__DIR__, "restart"))
 
-callbacks = CallbackSet(summary_callback, analysis_callback, stepsize_callback, save_solution)
+callbacks = CallbackSet(summary_callback, analysis_callback, stepsize_callback, save_solution. save_restart)
 
 ###################################################################################################
 # Run the simulation:
