@@ -106,8 +106,11 @@ analysis_callback = AnalysisCallback(semi, interval = 100 )
 
 stepsize_callback = StepsizeCallback(cfl = 2.5)
 
+output_directory = joinpath(@__DIR__, "out")
+
 save_solution = SaveSolutionCallback(dt = 4.0E-4,
-                                     solution_variables = cons2out) 
+                                     solution_variables = cons2out,
+                                     output_directory = output_directory) 
 ###################################################################################################
 # Run the simulation
 
