@@ -10,7 +10,7 @@ using Trixi
 using AeroTrixi
 using FlowRef
 ###################################################################################################
-# Free-sream conditions:
+# Free-stream conditions:
 
 const MASS_O2 = 5.3134e-26                  # O2 molecular mass [kg]
 const Θ_VIBR_O2 = 2273.54                   # O2 characteristic vibrational temperature [K]
@@ -25,7 +25,7 @@ const V1_FREESTREAM = 2830.0                # m / s
 const V2_FREESTREAM = 0.0
 const P_FREESTREAM = 4100.0                 # Pa
 const T_FREESTREAM = 370.0                  # K
-const L_REF = 0.75                          # scramjet lenght [m]
+const L_REF = 0.75                          # scramjet length [m]
 
 const R_SPECIFIC = FlowRef.k_B / MASS_AVG
 const RHO_FREESTREAM = P_FREESTREAM / (R_SPECIFIC * T_FREESTREAM)

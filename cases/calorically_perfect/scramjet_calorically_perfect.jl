@@ -27,7 +27,7 @@ initial_condition = ic_mach7_flow
 
 @inline function bc_inflow(u_inner, normal_direction::AbstractVector, x, t, surface_flux_function,
                                     equations::CompressibleEulerEquations2D)
-    # inflow boundary condition... NO REFLECTION 
+    # inflow boundary condition. 
     u_boundary = ic_mach7_flow(x, t, equations)
     flux = Trixi.flux(u_boundary, normal_direction, equations)
     return flux
@@ -35,7 +35,7 @@ end
 
 @inline function bc_outflow(u_inner, normal_direction::AbstractVector, x, t, surface_flux_function,
                                     equations::CompressibleEulerEquations2D)
-    # outflow boundary condition... NO REFLECTION 
+    # outflow boundary condition. 
     flux = Trixi.flux(u_inner, normal_direction, equations)
     return flux
 end
@@ -68,7 +68,7 @@ volume_flux = flux_ranocha
 basis = LobattoLegendreBasis(polydeg)
 shock_indicator = IndicatorHennemannGassner(equations, basis, alpha_max = 0.3, alpha_min = 0.001, 
                                             alpha_smooth = true, variable = density_pressure)
-# Look up the references to put here
+
 volume_integral = VolumeIntegralShockCapturingHG(shock_indicator;
                                                  volume_flux_dg = volume_flux,
                                                  volume_flux_fv = surface_flux)
@@ -77,7 +77,7 @@ volume_integral = VolumeIntegralShockCapturingHG(shock_indicator;
 # Solver
 solver = DGSEM(polydeg = polydeg, surface_flux = surface_flux, volume_integral = volume_integral)
 ###################################################################################################
-#  mesh imported from Gmsh
+#Mesh imported from Gmsh
 
 mesh_file = joinpath(@__DIR__, "..", "..", "LorrainMesh_Trixi.inp")
  
@@ -102,7 +102,7 @@ ode = semidiscretize(semi, tspan)
 
 summary_callback = SummaryCallback()
 
-analysis_callback = AnalysisCallback(semi, interval = 100 )
+analysis_callback = AnalysisCallback(semi, interval = 100)
 
 stepsize_callback = StepsizeCallback(cfl = 2.5)
 
